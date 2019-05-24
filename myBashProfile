@@ -1,0 +1,10 @@
+export PS1="\[\033[1;96m\]\u@\[\033[1;0m\]\w \$\[\033[0m\] "
+
+export PATH="/usr/local/opt/openssl/bin:$PATH"
+alias CreateModule="~/Projects/codingstandards/CreateModule.sh"
+alias CreateProject="~/Projects/codingstandards/CreateProject.sh"
+alias myIP="ipconfig getifaddr en0"
+
+            # osascript -e 'display notification "Tests Done"'
+alias notifyDone='terminal-notifier -message "Finished"'
+export CLICOLOR=1
