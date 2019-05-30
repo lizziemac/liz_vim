@@ -1,7 +1,41 @@
 #!/bin/bash
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
+#Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+#Python
+brew install python
+#Link Directories
+echo "export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"" >> ~/.bash_profile
+#Ceedling
+sudo gem install ceedling
+#AVR-GCC
+brew tap osx-cross/avr
+brew install avr-libc
+brew install avrdude
+#ShellCheck (sees is bash script is compatible across OS's
+brew install shellcheck
+#Mosquitto (for MQTT), saves output to text in case there are important things needed
+brew install mosquitto &> mosquitto_reqs.txt
+#PanDoc
+brew install pandoc
+#PanDoc
+brew install tmux
+#Pipes markdown file to localhost
+pip install grip
+#Pylint
+pip install pylint
+#Pretty Git Tree
+git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
+#Move premade bash_profile to the correct location
+cp myBashProfile ~/.bash_profile
+#Reload bash_profile
+source ~/.bash_profile
+#Setup .vim for pathogen
+mkdir -p ~/.vim/autoload ~/.vim/backups ~/.vim/swaps ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+#Move premade vimrc to the correct location
+cp myVimRC ~/.vimrc
+#Move to bundle folder created for pathogen and get all of the plugins
 cd ~/.vim/bundle  || exit
 #a
 wget -O a.vim "https://www.vim.org/scripts/download_script.php?src_id=7218"
@@ -23,5 +57,10 @@ git clone git://github.com/airblade/vim-gitgutter.git
 git clone https://github.com/plasticboy/vim-markdown.git
 #vim-signify
 git clone https://github.com/mhinz/vim-signify.git
-
-wget -O ~/.vimrc "https://raw.githubusercontent.com/lizziemac/liz_vim/master/liz_vimrc"
+#vim-colorschemes
+git clone https://github.com/flazz/vim-colorschemes
+#SSH-Keygen
+ssh-keygen
+cat ~/.ssh/id_rsa.pub | pbcopy
+#Notification of Completion
+osascript -e 'display notification "Your ssh key has been copied to your clipboard.\nVim plugins added to path ~/.vim/bundle" with title "Installations Complete" sound name "funk"'
