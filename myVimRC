@@ -40,11 +40,8 @@ set smartindent
 set cindent
 " make sure vim history works
 set viminfo+=!
-" open and maximize the split below
-map <C-J> <C-W>j<C-W>_
-" open and maximize the split above
-map <C-K> <C-W>k<C-W>_
-set wmh=0 " reduces splits to a single line
+" reduces splits to a single line
+set wmh=0
 " Enable per-directory .vimrc files and disable unsafe commands in them
 set exrc
 set secure
@@ -95,7 +92,7 @@ set t_Co=256
 
 set statusline=
 
-set statusline=%t                             " tail of the filename
+set statusline=%{expand('%:p:h:t')}/%t        " path of the filename
 set statusline+=\                             " blank space
 set statusline+=%y                            " filetype
 set statusline+=\                             " blank space
@@ -114,11 +111,21 @@ set statusline+=%#warningmsg#                 " Syntastic error flag
 set statusline+=%{SyntasticStatuslineFlag()}  " Syntastic error flag
 set statusline+=%*                            " Syntastic error flag
 
+let g:vim_markdown_folding_disabled = 1
+
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'passive' }
+
+" Write all buffers before navigating from Vim to tmux pane
+let g:tmux_navigator_save_on_switch = 2
+"set mappings to window nav to be a little simpler
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
 
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
