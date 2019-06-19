@@ -87,6 +87,9 @@ set showcmd
 set scrolloff=3
 " Unfold everything
 set foldlevel=99
+" Highlight the 80 character line (embedded standard) and make it a pretty blue
+set colorcolumn=81
+highlight ColorColumn ctermbg=6
 
 set t_Co=256
 
