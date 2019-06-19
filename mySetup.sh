@@ -2,38 +2,15 @@
 
 #Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-#Python
-brew install python
 #Link Directories
 echo "export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"" >> ~/.bash_profile
 #Ceedling
 sudo gem install ceedling
-#AVR-GCC
-brew tap osx-cross/avr
-brew install avr-libc
-brew install avrdude
-#ShellCheck (sees is bash script is compatible across OS's
-brew install shellcheck
-#Mosquitto (for MQTT), saves output to text in case there are important things needed
-brew install mosquitto &> mosquitto_reqs.txt
-#PanDoc
-brew install pandoc
-#Tmux
-brew install tmux
-#Kubernetes
-brew install kubectl
-#WGET
-brew install wget
-#Pipes markdown file to localhost
-pip install grip
-#Pylint
-pip install pylint
-#Move configs from git over
-cp gitconfig ~/.gitconfig
-#Move premade bash_profile to the correct location
-cp myBashProfile ~/.bash_profile
-#Reload bash_profile
-source ~/.bash_profile
+
+#Place all current brew tools in a file, then download all
+brew list > file
+cat file | xargs brew install
+
 #Install ngrok, used for serving local files from a local server
 wget -O ngrok.zip "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip"
 unzip ngrok.zip
@@ -43,11 +20,24 @@ rm -rf ngrok.zip
 #install npm and node.js, both used for a lot of stuff (most that I don't know about)
 brew install node
 npm -g install static-server
+
+#Pipes markdown file to localhost
+pip install grip
+#Pylint
+pip install pylint
+
+#Move configs from git over
+cp gitconfig ~/.gitconfig
+#Move premade bash_profile to the correct location
+cp myBashProfile ~/.bash_profile
+#Reload bash_profile
+source ~/.bash_profile
 #Setup .vim for pathogen
 mkdir -p ~/.vim/autoload ~/.vim/backups ~/.vim/swaps ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 #Move premade vimrc to the correct location
 cp myVimRC ~/.vimrc
+
 #Move to bundle folder created for pathogen and get all of the plugins
 cd ~/.vim/bundle  || exit
 #a
@@ -72,8 +62,10 @@ git clone https://github.com/plasticboy/vim-markdown.git
 git clone https://github.com/mhinz/vim-signify.git
 #vim-colorschemes
 git clone https://github.com/flazz/vim-colorschemes
+
 #SSH-Keygen
 ssh-keygen
 cat ~/.ssh/id_rsa.pub | pbcopy
+
 #Notification of Completion
 osascript -e 'display notification "Your ssh key has been copied to your clipboard.\nVim plugins added to path ~/.vim/bundle" with title "Installations Complete" sound name "funk"'
