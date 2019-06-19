@@ -4,9 +4,11 @@ cp ~/.vimrc myVimRC
 cp ~/.gitconfig gitconfig
 cp ~/.bash_profile myBashProfile
 
-git add myBashProfile myVimRC
+brew list > file
+
+git add myBashProfile myVimRC file
 
 THEDATE=$(date +"%d.%m.%Y")
-git commit -m "$THEDATE Standard refresh of vimrc and bash_profile"
+git commit -m "$THEDATE Refreshed vimrc, bash_profile, and list of brew tools"
 
 git push
