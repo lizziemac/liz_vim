@@ -44,7 +44,7 @@ cp myVimRC ~/.vimrc
 #Move to bundle folder created for pathogen and get all of the plugins
 cd ~/.vim/bundle  || exit
 #a
-wget -O a.vim "https://www.vim.org/scripts/download_script.php?src_id=7218"
+git clone https://github.com/vim-scripts/a.vim.git
 #dispatch
 git clone https://tpope.io/vim/dispatch.git
 #nerdtree
@@ -69,6 +69,9 @@ git clone https://github.com/flazz/vim-colorschemes
 #SSH-Keygen
 ssh-keygen
 cat ~/.ssh/id_rsa.pub | pbcopy
+
+#return to main directory
+cd ~
 
 #Notification of Completion
 terminal-notifier "Operation Complete"
