@@ -7,7 +7,7 @@ cp ~/.bash_profile myBashProfile
 
 brew list > file
 
-git add myBashProfile myVimRC file
+git add myBashProfile myVimRC file sshconf
 
 THEDATE=$(date +"%d.%m.%Y")
 git commit -m "$THEDATE Refreshed vimrc, bash_profile, and list of brew tools"
