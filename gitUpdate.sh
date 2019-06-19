@@ -2,6 +2,7 @@
 
 cp ~/.vimrc myVimRC
 cp ~/.gitconfig gitconfig
+cp ~/.ssh/config sshconf
 cp ~/.bash_profile myBashProfile
 
 brew list > file

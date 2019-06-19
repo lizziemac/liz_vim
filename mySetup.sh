@@ -27,6 +27,7 @@ pip install pylint
 
 #Move configs from git over
 cp gitconfig ~/.gitconfig
+cp sshconf ~/.ssh/config
 #Move premade bash_profile to the correct location
 cp myBashProfile ~/.bash_profile
 #Reload bash_profile
