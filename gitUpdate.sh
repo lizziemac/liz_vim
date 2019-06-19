@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cp ~/.vimrc myVimRC
+cp ~/.gitconfig gitconfig
 cp ~/.bash_profile myBashProfile
 
 git add myBashProfile myVimRC

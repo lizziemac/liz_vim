@@ -1,0 +1,7 @@
+[user]
+	name = lizziemac
+	email = liz@stratisiot.com
+
+[alias]
+	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	unstage = reset HEAD --

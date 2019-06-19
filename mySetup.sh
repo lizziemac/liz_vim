@@ -18,14 +18,16 @@ brew install shellcheck
 brew install mosquitto &> mosquitto_reqs.txt
 #PanDoc
 brew install pandoc
-#PanDoc
+#Tmux
 brew install tmux
+#Kubernetes
+brew install kubectl
 #Pipes markdown file to localhost
 pip install grip
 #Pylint
 pip install pylint
-#Pretty Git Tree
-git config --global alias.tree "log --graph --decorate --pretty=oneline --abbrev-commit"
+#Move configs from git over
+cp gitconfig ~/.gitconfig
 #Move premade bash_profile to the correct location
 cp myBashProfile ~/.bash_profile
 #Reload bash_profile
