@@ -8,7 +8,6 @@ echo "export PATH="/usr/local/bin:/usr/local/sbin:~/bin:$PATH"" >> ~/.bash_profi
 sudo gem install ceedling
 
 #Place all current brew tools in a file, then download all
-brew list > file
 cat file | xargs brew install
 
 #Install ngrok, used for serving local files from a local server
