@@ -20,6 +20,9 @@ rm -rf ngrok.zip
 brew install node
 npm -g install static-server
 
+#lists all information/caveats pertaining to all brew packages
+cat file | xargs brew info > caveats.txt
+
 #Pipes markdown file to localhost
 pip install grip
 #Pylint
@@ -67,4 +70,5 @@ ssh-keygen
 cat ~/.ssh/id_rsa.pub | pbcopy
 
 #Notification of Completion
-osascript -e 'display notification "Your ssh key has been copied to your clipboard.\nVim plugins added to path ~/.vim/bundle" with title "Installations Complete" sound name "funk"'
+terminal-notifier "Operation Complete"
+osascript -e 'tell app "Terminal" to display dialog "Your ssh key has been copied to your clipboard.\nVim plugins added to path ~/.vim/bundle\nBrew info saved to caveats.txt" with title "Installations Complete"' 
