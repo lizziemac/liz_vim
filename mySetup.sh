@@ -22,6 +22,8 @@ brew install pandoc
 brew install tmux
 #Kubernetes
 brew install kubectl
+#WGET
+brew install wget
 #Pipes markdown file to localhost
 pip install grip
 #Pylint
@@ -32,6 +34,15 @@ cp gitconfig ~/.gitconfig
 cp myBashProfile ~/.bash_profile
 #Reload bash_profile
 source ~/.bash_profile
+#Install ngrok, used for serving local files from a local server
+wget -O ngrok.zip "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip"
+unzip ngrok.zip
+chmod 777 ngrok
+mv ngrok /usr/local/bin
+rm -rf ngrok.zip
+#install npm and node.js, both used for a lot of stuff (most that I don't know about)
+brew install node
+npm -g install static-server
 #Setup .vim for pathogen
 mkdir -p ~/.vim/autoload ~/.vim/backups ~/.vim/swaps ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
