@@ -1,10 +1,21 @@
+PATH=/usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin
 export PS1="\[\033[1;96m\]\u@\[\033[1;0m\]\w \$\[\033[0m\] "
-
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-alias CreateModule="~/Projects/codingstandards/CreateModule.sh"
-alias CreateProject="~/Projects/codingstandards/CreateProject.sh"
-alias myIP="ipconfig getifaddr en0"
-
-            # osascript -e 'display notification "Tests Done"'
-alias notifyDone='terminal-notifier -message "Finished"'
 export CLICOLOR=1
+
+alias CreateModule='~/Projects/codingstandards/CreateModule.sh'
+alias CreateProject='~/Projects/codingstandards/CreateProject.sh'
+alias contexts='kubectl config get-contexts'
+alias ctag='ctags -R --exclude=.git --exclude=build'
+alias kc='kubectl'
+alias kx='kubectx'
+alias myIP='ipconfig getifaddr en0'
+alias notifyDone='terminal-notifier -message "Finished"'
+alias deploy_remote='./tools/deploy_remote.sh /Users/liz/Projects/artis-4-stratis-deployment/deployment'
+
+CPPFLAGS=-I/usr/local/opt/openssl/include
+LDFLAGS=-L/usr/local/opt/openssl/lib
+
+pod ()
+{
+    kubectl -n ${KUBECTL_NAMESPACE} exec -it $1 -- /bin/bash
+}

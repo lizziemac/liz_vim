@@ -95,7 +95,7 @@ set t_Co=256
 
 set statusline=
 
-set statusline=%{expand('%:p:h:t')}/%t        " path of the filename
+set statusline=%F                             " full path of the filename
 set statusline+=\                             " blank space
 set statusline+=%y                            " filetype
 set statusline+=\                             " blank space
