@@ -1,4 +1,3 @@
-PATH=/usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin
 export PS1="\[\033[1;96m\]\u@\[\033[1;0m\]\w \$\[\033[0m\] "
 export CLICOLOR=1
 
@@ -10,7 +9,11 @@ alias kc='kubectl'
 alias kx='kubectx'
 alias myIP='ipconfig getifaddr en0'
 alias notifyDone='terminal-notifier -message "Finished"'
-alias deploy_remote='./tools/deploy_remote.sh /Users/liz/Projects/artis-4-stratis-deployment/deployment'
+alias cdDeploy='cd /Users/liz/Projects/artis-4-stratis-deployment/deployment'
+alias checkLocalPort='sudo lsof -i TCP:1883'
+
+GO111MODULE=on
+GOPATH=/Users/liz/Projects/OpenSource/go
 
 CPPFLAGS=-I/usr/local/opt/openssl/include
 LDFLAGS=-L/usr/local/opt/openssl/lib
@@ -19,3 +22,22 @@ pod ()
 {
     kubectl -n ${KUBECTL_NAMESPACE} exec -it $1 -- /bin/bash
 }
+
+replace ()
+{
+    if [ $# -lt 3 ]; then
+        echo "usage: replace path find replace"
+        echo "    path: the path to search and replace string"
+        echo "    find: the string to find in path"
+        echo "    replace: the new string"
+        return
+    fi
+
+    MY_PATH=$1
+    FIND=$2
+    REPLACE=$3
+    LC_ALL=C find $MY_PATH -type f -name '*' -exec sed -i '' s/$FIND/$REPLACE/ {} +
+}
+
+
+PATH=/usr/local/opt/openssl/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin/${GOPATH//://bin:}/bin

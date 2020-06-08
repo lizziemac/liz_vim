@@ -1,3 +1,6 @@
 Host gerrit.bulogics.com
-User lizziemac 
+User lizziemac
 
+IdentityFile ~/.ssh/id_rsa
+Host 192.168.6.2
+User ubuntu

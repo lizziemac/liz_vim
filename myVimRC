@@ -3,6 +3,7 @@ execute pathogen#infect()
 syntax on
 filetype plugin indent on
 
+
 " Make Vim more useful
 set nocompatible
 " Ask to confirm if leaving file
@@ -88,7 +89,7 @@ set scrolloff=3
 " Unfold everything
 set foldlevel=99
 " Highlight the 80 character line (embedded standard) and make it a pretty blue
-set colorcolumn=81
+" set colorcolumn=81
 highlight ColorColumn ctermbg=6
 
 set t_Co=256
