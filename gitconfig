@@ -1,7 +1,9 @@
 [user]
-	name = lizziemac
-	email = liz@stratisiot.com
+	name = Liz MacLean
+	email = elizabeth.maclean95@gmail.com
 
 [alias]
 	tree = log --graph --decorate --pretty=oneline --abbrev-commit
 	unstage = reset HEAD --
+[core]
+	editor = vim
