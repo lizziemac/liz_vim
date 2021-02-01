@@ -24,6 +24,9 @@ package_installations()
         brew install node
         sudo gem install ceedling
 
+        #install LaTeX for mac
+        brew cask install mactex
+
         #Install ngrok, used for serving local files from a local server
         wget -O ngrok.zip "https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-darwin-amd64.zip"
         unzip ngrok.zip

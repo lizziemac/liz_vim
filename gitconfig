@@ -3,7 +3,10 @@
 	email = elizabeth.maclean95@gmail.com
 
 [alias]
-	tree = log --graph --decorate --pretty=oneline --abbrev-commit
+	tree = log --graph --full-history --all --color --date=short --pretty=format:\"%x1b[36m%x1b[1m%h %x1b[35m%cd %x1b[0m%x20%s\"
+	treetime = log --graph --full-history --all --color --date=short --pretty=format:\"%x1b[36m%x1b[1m%h %x1b[35m%ci %x1b[0m%x20%s\"
 	unstage = reset HEAD --
 [core]
 	editor = vim
+[http "https://gerrit.bulogics.com"]
+	sslVerify = false
